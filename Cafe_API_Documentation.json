@@ -1,0 +1,142 @@
+{
+  "info": {
+    "_postman_id": "f9de24b1-3040-41eb-b2cd-5ad39da8c590",
+    "name": "Cafe & Wifi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [{
+    "name": "Get All Cafes",
+    "id": "b8a593d4-0897-44a6-8319-8f699ea8d2ae",
+    "request": {
+      "method": "GET",
+      "header": [],
+      "url": "http://127.0.0.1:5000/all",
+      "description": "The /all route will return all cafes and their related information from the database. There are no parameters for this route."
+    },
+    "response": []
+  }, {
+    "name": "Get Random Cafe",
+    "id": "09b3cd80-4f1d-45e8-8463-6bcdc2848d16",
+    "request": {
+      "method": "GET",
+      "header": [],
+      "url": "http://127.0.0.1:5000/random",
+      "description": "The /random route will return a random cafe and it's related information from the database. This route takes no parameters."
+    },
+    "response": []
+  }, {
+    "name": "Search Cafes By Location",
+    "id": "b9341738-9707-4101-87e0-45c1fc796d0b",
+    "request": {
+      "method": "GET",
+      "header": [],
+      "url": {
+        "raw": "http://127.0.0.1:5000/search?loc=",
+        "protocol": "http",
+        "host": ["127", "0", "0", "1"],
+        "port": "5000",
+        "path": ["search"],
+        "query": [{
+          "key": "loc",
+          "value": ""
+        }]
+      },
+      "description": "The /search route will search the cafes database for a cafe that matches the location queried.\n\nUse the loc parameter to pass a location name."
+    },
+    "response": []
+  }, {
+    "name": "Add New Cafe",
+    "id": "9f316329-a3ad-4058-89aa-bf7adacada89",
+    "request": {
+      "method": "POST",
+      "header": [],
+      "body": {
+        "mode": "urlencoded",
+        "urlencoded": [{
+          "key": "name",
+          "value": "Timberyard",
+          "type": "text"
+        }, {
+          "key": "map_url",
+          "value": "https://goo.gl/maps/PjFimxDhK4h7KnLG7",
+          "type": "text"
+        }, {
+          "key": "img_url",
+          "value": "https://localist-images.azureedge.net/photos/38634324197092/original/4a37e2cbf36ca098deee95971abe9166a2841952.png",
+          "type": "text"
+        }, {
+          "key": "loc",
+          "value": "TestLocation",
+          "type": "text"
+        }, {
+          "key": "seats",
+          "value": "5",
+          "type": "text"
+        }, {
+          "key": "toilet",
+          "value": "True",
+          "type": "text"
+        }, {
+          "key": "wifi",
+          "value": "True",
+          "type": "text"
+        }, {
+          "key": "sockets",
+          "value": "True",
+          "type": "text"
+        }, {
+          "key": "calls",
+          "value": "True",
+          "type": "text"
+        }, {
+          "key": "coffee_price",
+          "value": "4",
+          "type": "text"
+        }]
+      },
+      "url": "http://127.0.0.1:5000/add",
+      "description": "The /add route will add a new cafe to the database.\n\nBelow is a list of required parameters:\n\n| **Strings** | **Booleans** |\n| --- | --- |\n| name | toilet |\n| map\\_url | wifi |\n| img\\_url | sockets |\n| loc | calls |\n| seats |  |\n| coffee\\_price |  |"
+    },
+    "response": []
+  }, {
+    "name": "Update Coffee Price",
+    "id": "bee523e6-73dd-45c8-86a5-35460f6ce53c",
+    "request": {
+      "method": "PATCH",
+      "header": [],
+      "url": {
+        "raw": "http://127.0.0.1:5000/update-price/22?new_price=$17.22",
+        "protocol": "http",
+        "host": ["127", "0", "0", "1"],
+        "port": "5000",
+        "path": ["update-price", "22"],
+        "query": [{
+          "key": "new_price",
+          "value": "$17.22"
+        }]
+      },
+      "description": "The /update-price/ route will allow a user to update the price of coffee for a cafe in the database. This route requires you to enter the known id of the cafe you are attempting to update as part of the url (ex. /update-price/22?new\\_price=$4.25).\n\nThis route also requires a single parameter be passed with the name of the parameter being new\\_price"
+    },
+    "response": []
+  }, {
+    "name": "Delete Cafe",
+    "id": "0b62de87-0328-4f15-897f-2cb49a62221e",
+    "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": {
+        "raw": "http://127.0.0.1:5000/report-closed/22?api_key=someAPIkey",
+        "protocol": "http",
+        "host": ["127", "0", "0", "1"],
+        "port": "5000",
+        "path": ["report-closed", "22"],
+        "query": [{
+          "key": "api_key",
+          "value": "someAPIkey"
+        }]
+      },
+      "description": "The /report-closed/ route will allow a user to remove a cafe from the database. This route requires you to enter the known id of the cafe you are attempting to remove as part of the url (ex. /report-closed/22?api\\_key=\\[someapikeyhere\\]).\n\nThis route also requires a single parameter be passed with the name of the parameter being api\\_key"
+    },
+    "response": []
+  }]
+}
